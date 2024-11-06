@@ -1,0 +1,28 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "a6bf63d1ea6b03a21f1231e60466d30c"
+name = "chat-boat"
+handle = "chat-boat-1"
+application_url = "https://your-gi-belong-coordinate.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "chat-bot-app.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://your-gi-belong-coordinate.trycloudflare.com/auth/callback",
+  "https://your-gi-belong-coordinate.trycloudflare.com/auth/shopify/callback",
+  "https://your-gi-belong-coordinate.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+[pos]
+embedded = false
