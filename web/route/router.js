@@ -5,7 +5,7 @@ const route = express.Router();
 route.get("/testing", (req,res)=>{
     console.log("hello");
     res.send("Hey hii")
-})
+});
 
 route.get("/add-product", (req,res)=>{
     console.log(req.body);
