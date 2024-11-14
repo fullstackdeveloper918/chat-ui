@@ -8,6 +8,13 @@ import shopify from "./shopify.js";
 import productCreator from "./product-creator.js";
 import PrivacyWebhookHandlers from "./privacy.js";
 
+import db_con from "./db.js"
+import bodyParser from  "body-parser" ;
+
+// Import controller functions
+import route from "./route/router.js"
+
+import Middleware from "./middleware/middleware.js"
 const PORT = parseInt(
   process.env.BACKEND_PORT || process.env.PORT || "3000",
   10
@@ -35,9 +42,24 @@ app.post(
 // If you are adding routes outside of the /api path, remember to
 // also add a proxy rule for them in web/frontend/vite.config.js
 
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+app.use("/api/", (req,res)=>{
+  console.log("hey")
+})
+
+
 app.use("/api/*", shopify.validateAuthenticatedSession());
 
+
+
+
+
 app.use(express.json());
+
+/* app.use(Middleware.sessionData()) */
 
 app.get("/api/products/count", async (_req, res) => {
   const client = new shopify.api.clients.Graphql({

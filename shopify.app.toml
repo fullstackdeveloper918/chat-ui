@@ -3,7 +3,7 @@
 client_id = "a6bf63d1ea6b03a21f1231e60466d30c"
 name = "chat-boat"
 handle = "chat-boat-1"
-application_url = "https://your-gi-belong-coordinate.trycloudflare.com"
+application_url = "https://influences-porcelain-demanding-mozambique.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://your-gi-belong-coordinate.trycloudflare.com/auth/callback",
-  "https://your-gi-belong-coordinate.trycloudflare.com/auth/shopify/callback",
-  "https://your-gi-belong-coordinate.trycloudflare.com/api/auth/callback"
+  "https://influences-porcelain-demanding-mozambique.trycloudflare.com/auth/callback",
+  "https://influences-porcelain-demanding-mozambique.trycloudflare.com/auth/shopify/callback",
+  "https://influences-porcelain-demanding-mozambique.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
