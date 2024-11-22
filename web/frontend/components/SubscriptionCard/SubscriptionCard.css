@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    background-color: #F7F8FC;
+    font-family: "Mulish", sans-serif;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 350px;
+    margin: 20px;
+    background-color: #FFFFFF;
+    border: 1px solid #DAE1F5;
+    border-radius: 10px;
+  }
+  .card .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 40px 50px;
+    background-color: #F7F8FC;
+    border-radius: 10px 10px 0 0;
+  }
+  .card .header .license {
+    display: block;
+    color: #9234E9;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 27px;
+  }
+  .card .header h2 {
+    color: #10182F;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .card .header .duration {
+    display: block;
+    font-size: 20px;
+    line-height: 33px;
+    margin-bottom: 30px;
+  }
+.desc{
+  display: flex;
+  max-width: 300px;
+  align-items: center;
+}
+.btn {
+    padding: 12px 36px;
+    color: #FFFFFF;
+    background-color: #9234E9;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: none;
+    width: 100%;
+  }
+  .card .header .btn:hover {
+    background-color: #0A0F1E;
+  }
+  .card .features {
+    padding: 30px 0 40px;
+  }
+  .card .features li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 22px;
+  }
+  .card .features li:last-child {
+    margin-bottom: 0;
+  }
+  .card .features li img {
+    width: 13px;
+    margin-right: 10px;
+  }
+  .card .features li a {
+    color: #10182F;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+  }
+  .featureContent {
+    max-width: 80%;
+    margin: 0 auto 30px;
+}
+  /* Let's write the media query */
+  @media (max-width: 576px) {
+    body {
+      padding: 10px;
+    }
+    .card {
+      width: 100%;
+      margin: 10px;
+    }
+    .card .features {
+      padding: 30px 0 40px;
+    }
+  }

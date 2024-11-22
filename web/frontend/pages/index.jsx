@@ -14,9 +14,35 @@ import { useTranslation, Trans } from "react-i18next";
 import { trophyImage } from "../assets";
 
 import { ProductsCard } from "../components";
+import { useEffect } from "react";
 
 export default function HomePage() {
   const { t } = useTranslation();
+  
+  useEffect(() => {
+    // Define the API URL
+    const apiUrl = '/api/testing';
+
+    // Fetch the data when the component mounts
+    fetch(apiUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log(data)
+        setData(data);
+        setLoading(false); // Set loading to false once data is fetched
+      })
+      .catch(error => {
+        setError(error);
+        setLoading(false); // Set loading to false if there's an error
+      });
+  }, []);
+
+
   return (
     <Page narrowWidth>
       <TitleBar title={t("HomePage.title")} />

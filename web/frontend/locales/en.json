@@ -9,7 +9,9 @@
   },
   "NavigationMenu": {
     "pageName": "Page name ",
-    "demo":"Demo Page"
+    "demo":"Demo Page",
+    "plansetting": "Plan Setting",
+    "storeuserinfo": "Store User Info"
   },
   "NotFound": {
     "description": "Check the URL and try again, or use the search bar to find what you need.",

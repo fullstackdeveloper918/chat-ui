@@ -13,7 +13,6 @@ import bodyParser from  "body-parser" ;
 
 // Import controller functions
 import route from "./route/router.js"
-
 import Middleware from "./middleware/middleware.js"
 const PORT = parseInt(
   process.env.BACKEND_PORT || process.env.PORT || "3000",
@@ -45,19 +44,15 @@ app.post(
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
+
 app.use(bodyParser.json())
-app.use("/api/", (req,res)=>{
-  console.log("hey")
-})
 
 
 app.use("/api/*", shopify.validateAuthenticatedSession());
-
-
-
-
-
 app.use(express.json());
+//app.use("/api/*", Middleware.sessionData)
+app.use("/api/", route)
+//app.use(Middleware.sessionData);
 
 /* app.use(Middleware.sessionData()) */
 
