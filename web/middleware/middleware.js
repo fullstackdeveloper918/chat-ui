@@ -1,9 +1,9 @@
 const Middleware = {};
 Middleware.sessionData = async(req,res)=>{
     try{
-        console.log(res.locals,'res.locals')
+        //console.log(res.locals,'res.locals')
       const currentUserSession = res.locals.shopify.session;
-      console.log(currentUserSession,'current user session 1234')
+     // console.log(currentUserSession,'current user session 1234')
       res.status(200).json({
         status : 200,
         data : currentUserSession

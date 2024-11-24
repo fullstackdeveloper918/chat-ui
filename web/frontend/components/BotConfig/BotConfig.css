@@ -1,0 +1,55 @@
+.popup-filter {
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+}
+.popup-filter h2 {
+    font-size: 22px;
+    text-align: center;
+    font-weight: 600;
+    color: #9234E9;
+}
+.popup-filter form {
+    padding: 20px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.popup-filter div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.popup-filter div input {
+    border: 1px solid #ddd;
+    min-height: 35px;
+    border-radius: 4px;
+}
+.popup-filter div:first-child input {
+padding: 0px 10px;
+}
+.popup-filter form div:nth-child(2) input {
+    min-height: 50px;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.popup-filter button {
+    background: #9234E9;
+    border-radius: 5px;
+    min-height: 37px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .5s all;
+    border: 1px solid #000;
+}
+.popup-filter button:hover {
+    background: transparent;
+    color: #000;
+}

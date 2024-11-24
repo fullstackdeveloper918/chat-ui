@@ -1,0 +1,11 @@
+.choose-plan{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.description{
+    text-decoration: underline;
+    color: rgb(36, 36, 189);
+    margin-inline: 4px;
+}

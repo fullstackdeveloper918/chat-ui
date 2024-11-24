@@ -3,6 +3,7 @@ import { Card, TextContainer, Text } from "@shopify/polaris";
 import { useAppBridge } from "@shopify/app-bridge-react";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "react-query";
+import '../assets/style.css'
 
 export function ProductsCard() {
   const shopify = useAppBridge();
@@ -48,26 +49,24 @@ export function ProductsCard() {
   };
 
   return (
+    <>
     <Card
       title={t("ProductsCard.title")}
       sectioned
-      primaryFooterAction={{
-        content: t("ProductsCard.populateProductsButton", {
-          count: productsCount,
-        }),
-        onAction: handlePopulate,
-        loading: isPopulating,
-      }}
+      
     >
       <TextContainer spacing="loose">
-        <p>{t("ProductsCard.description")}</p>
-        <Text as="h4" variant="headingMd">
-          {t("ProductsCard.totalProductsHeading")}
-          <Text variant="bodyMd" as="p" fontWeight="semibold">
-            {isLoadingCount ? "-" : data?.count}
-          </Text>
-        </Text>
+        <div className="choose-plan">
+
+       
+        <span>You have not chosen any plan, </span>
+        <a className="description" href="/plansetting">{t("ProductsCard.description")}</a>
+        <p className="description"></p>
+        <span>To choose your plan</span>
+        </div>
+        
       </TextContainer>
     </Card>
+    </>
   );
 }

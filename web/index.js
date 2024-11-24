@@ -3,6 +3,10 @@ import { join } from "path";
 import { readFileSync } from "fs";
 import express from "express";
 import serveStatic from "serve-static";
+ 
+
+import dotenv from 'dotenv';
+dotenv.config();
 
 import shopify from "./shopify.js";
 import productCreator from "./product-creator.js";
@@ -44,18 +48,15 @@ app.post(
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
-
 app.use(bodyParser.json())
-
 
 app.use("/api/*", shopify.validateAuthenticatedSession());
 app.use(express.json());
+
+//middleware 
 //app.use("/api/*", Middleware.sessionData)
+
 app.use("/api/", route)
-//app.use(Middleware.sessionData);
-
-/* app.use(Middleware.sessionData()) */
-
 app.get("/api/products/count", async (_req, res) => {
   const client = new shopify.api.clients.Graphql({
     session: res.locals.shopify.session,
@@ -71,7 +72,6 @@ app.get("/api/products/count", async (_req, res) => {
 
   res.status(200).send({ count: countData.data.productsCount.count });
 });
-
 app.post("/api/products", async (_req, res) => {
   let status = 200;
   let error = null;
@@ -85,7 +85,6 @@ app.post("/api/products", async (_req, res) => {
   }
   res.status(status).send({ success: status === 200, error });
 });
-
 app.use(shopify.cspHeaders());
 app.use(serveStatic(STATIC_PATH, { index: false }));
 
