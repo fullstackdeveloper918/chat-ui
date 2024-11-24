@@ -32,7 +32,7 @@ export default function HomePage() {
         return response.json();
       })
       .then(data => {
-        console.log(data)
+       // console.log(data)
         setData(data);
         setLoading(false); // Set loading to false once data is fetched
       })

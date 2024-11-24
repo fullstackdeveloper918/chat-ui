@@ -8,7 +8,7 @@ const SubscriptionCard = ({ plan }) => {
   // const fetch = useAuthenticatedFetch();
 
   const handleSubscribe = async () => {
-    console.log('clickd')
+   
     
     const shopDetails = {
       plane_status : plan?.text
