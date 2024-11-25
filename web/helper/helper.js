@@ -1,38 +1,34 @@
-const Helper = {};
 import db_con from "../db.js";
 
+// Helper object to store utility functions
+const Helper = {};
+
+// Fetch session data
 export const getSessionData = async (res) => {
   try {
-    // Assuming you're using some server-side context to get the session data
-
     const currentUserSession = res.locals.shopify.session;
 
     if (!currentUserSession) {
       throw new Error("Session data is not available");
     }
 
-    return currentUserSession; // Return session data instead of sending a response
+    return currentUserSession; // Return session data
   } catch (error) {
-    //console.error("Error retrieving session data:", error.message);
-    throw error; // Throw the error to be handled by the caller
+    // Handle error and rethrow for further handling
+    console.error("Error retrieving session data:", error.message);
+    throw error;
   }
 };
 
+// Fetch store languages based on session data
 Helper.getStoreLanguages = async (sessionData) => {
   try {
-    // Await the session data before proceeding
-    const sessionDataResponse = await sessionData;
-    //console.log("sessionDataResponse", sessionDataResponse.shop);
+    const { accessToken, shop } = await sessionData;
 
-    if (
-      !sessionDataResponse ||
-      !sessionDataResponse.accessToken ||
-      !sessionDataResponse.shop
-    ) {
+    if (!accessToken || !shop) {
       throw new Error("Invalid session data.");
     }
 
-    const { accessToken, shop } = sessionDataResponse;
     const apiUrl = `https://${shop}/admin/api/2023-10/store_locales.json`;
 
     const response = await fetch(apiUrl, {
@@ -50,36 +46,30 @@ Helper.getStoreLanguages = async (sessionData) => {
     }
 
     const data = await response.json();
-    //console.log("datalamnh", data);
 
-    // Return the locales or default to "en" (English) if no locales are found
-    if (data.locales && data.locales.length > 0) {
-      return data.locales;
-    } else {
-      //console.log("No locales found, returning default language: English (en).");
-      return ["en"]; // Default to English if no locales found
-    }
+    // Return locales or default to "en" if no locales found
+    return data.locales && data.locales.length > 0 ? data.locales : ["en"];
   } catch (error) {
-    // //console.error("Error fetching store languages:", error.message);
-    // If there's an error, default to English
-    return ["en"]; // Default to English in case of error
+    // Log error and return default language in case of failure
+    console.error("Error fetching store languages:", error.message);
+    return ["en"]; // Default to English
   }
 };
 
-const geyApikey = (shop) => {
+// Get API key for a given shop
+const getApiKey = (shop) => {
   return new Promise((resolve, reject) => {
     const query =
       "SELECT api_key FROM apikey WHERE domain = ? AND deleted_at IS NULL";
 
     db_con.query(query, [shop], (error, results) => {
       if (error) {
-        console.error("Error checking if store exists: ", error);
+        console.error("Error querying database for API key:", error);
         return reject(new Error("Database error"));
       }
 
-      // If no results, reject with a specific error message
       if (results.length > 0) {
-        resolve(results[0].api_key); // Return the API key
+        resolve(results[0].api_key); // Return API key
       } else {
         reject(new Error("Shop not found or inactive"));
       }
@@ -87,33 +77,58 @@ const geyApikey = (shop) => {
   });
 };
 
+// Get shop info using session data
 Helper.getShopInfo = async (sessionData) => {
   try {
-    // Wait for the sessionData promise to resolve
-    const sessionDataResponse = await sessionData;
+    const { accessToken, shop } = await sessionData;
 
-    if (
-      !sessionDataResponse ||
-      !sessionDataResponse.accessToken ||
-      !sessionDataResponse.shop
-    ) {
+    if (!accessToken || !shop) {
       throw new Error("Invalid session data.");
     }
 
-    const { accessToken, shop } = sessionDataResponse;
-
-    // Fetch the API key for the given shop
-    const apiKey = await geyApikey(shop); // Await the result of geyApikey
-
-    // Log the shop info (optional)
-    console.log(`Shop: ${shop}, API Key: ${apiKey}`);
-
-    //return { accessToken, shop, apiKey };
+    const apiKey = await getApiKey(shop); // Get API key for the shop
     return apiKey;
   } catch (error) {
     console.error("Error in getShopInfo:", error.message);
-    throw error; // Rethrow the error so the caller can handle it
+    throw error; // Rethrow error for handling in caller
   }
 };
+
+// Fetch store info based on session data
+Helper.storeInfo = async (sessionData) => {
+  try {
+    const { accessToken, shop } = await sessionData;
+
+    if (!accessToken || !shop) {
+      throw new Error("Invalid session data.");
+    }
+
+    const apiKey = await getApiKey(shop); // Get API key for the shop
+    const apiUrl = `https://${shop}/admin/api/2024-10/shop.json`;
+
+    const response = await fetch(apiUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Shopify-Access-Token": accessToken,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `Error fetching store info: ${response.status} ${response.statusText}`
+      );
+    }
+    console.log("storeinfo",response.status);
+    return await response.json(); // Return store info as JSON
+  } catch (error) {
+    // Log the error and rethrow
+    console.error("Error in storeInfo:", error.message);
+    throw error;
+  }
+};
+
+
+
 
 export default Helper;

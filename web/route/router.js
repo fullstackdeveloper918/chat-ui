@@ -26,7 +26,10 @@ route.get("/apiendpoint-zoyia", async (req, res) => {
     });
   }
 });
+route.get("/active-plane",USER.activePlane)
 
 route.get("/check-shop-existence", USER.checkShop);
+
+
 
 export default route;

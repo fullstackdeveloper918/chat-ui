@@ -3,7 +3,7 @@
 client_id = "a6bf63d1ea6b03a21f1231e60466d30c"
 name = "chat-boat"
 handle = "chat-boat-1"
-application_url = "https://karma-eh-mountain-russia.trycloudflare.com"
+application_url = "https://expo-airlines-tray-orientation.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://karma-eh-mountain-russia.trycloudflare.com/auth/callback",
-  "https://karma-eh-mountain-russia.trycloudflare.com/auth/shopify/callback",
-  "https://karma-eh-mountain-russia.trycloudflare.com/api/auth/callback"
+  "https://expo-airlines-tray-orientation.trycloudflare.com/auth/callback",
+  "https://expo-airlines-tray-orientation.trycloudflare.com/auth/shopify/callback",
+  "https://expo-airlines-tray-orientation.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
