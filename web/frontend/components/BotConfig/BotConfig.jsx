@@ -10,6 +10,8 @@ const BotConfig = () => {
     toneOfVoice: "Friendly",
     color: "#000000",
     logo: null,
+    language: 'En',
+    initialMessage: 'Welcome'
   });
 
   const fetchExistence = async () => {
@@ -69,6 +71,8 @@ const BotConfig = () => {
       const formDataToSend = new FormData();
       formDataToSend.append("productInfo", formData.productInfo);
       formDataToSend.append("toneOfVoice", formData.toneOfVoice);
+      formDataToSend.append("language", formData.language);
+      formDataToSend.append("color", formData.color);
       formDataToSend.append("color", formData.color);
       formDataToSend.append("logo", formData.logo);
 
@@ -132,6 +136,29 @@ const BotConfig = () => {
             <option value="Friendly">Friendly</option>
             <option value="Professional">Professional</option>
           </select>
+        </div>
+
+        {/* Language */}
+
+        <div>
+          <label htmlFor="language">Language</label>
+          <select
+            id="language"
+            name="language"
+            value={formData.language}
+            onChange={handleChange}
+            required
+          >
+            <option value="en">En</option>
+            <option value="fr">FR</option>
+          </select>
+        </div>
+
+        {/* Initial Message */}
+
+        <div>
+          <label htmlFor="intialMessage">Initial Message</label>
+          <p>{formData.initialMessage}</p>
         </div>
 
         {/* Logo */}
