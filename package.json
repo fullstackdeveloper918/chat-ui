@@ -12,7 +12,10 @@
     "deploy": "shopify app deploy"
   },
   "dependencies": {
-    "axios": "^1.7.7"
+    "axios": "^1.7.7",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.11.5",
+    "nodemon": "^3.1.9"
   },
   "author": "DELL",
   "private": true,

@@ -129,6 +129,13 @@ Helper.storeInfo = async (sessionData) => {
 };
 
 
+Helper.addWebhook = async(shop, plane) =>{
+  
+ 
+}
+
+
+
 
 
 export default Helper;
