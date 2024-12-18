@@ -50,14 +50,15 @@ app.post(
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use("/api/", route)
 
+// app.use("/api/", route)
 
 // parse application/json
 
 app.use("/api/*", shopify.validateAuthenticatedSession());
 app.use(express.json());
 
+app.use("/api/", route)
 
 //middleware 
 //app.use("/api/*", Middleware.sessionData)

@@ -3,7 +3,7 @@
 client_id = "aecc1e39f3be0c08f212c689187ed9c1"
 name = "chatui"
 handle = "chatui"
-application_url = "https://reported-impose-twins-shopping.trycloudflare.com"
+application_url = "https://genes-asn-mainstream-herself.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_products"
 
 [auth]
 redirect_urls = [
-  "https://reported-impose-twins-shopping.trycloudflare.com/auth/callback",
-  "https://reported-impose-twins-shopping.trycloudflare.com/auth/shopify/callback",
-  "https://reported-impose-twins-shopping.trycloudflare.com/api/auth/callback"
+  "https://genes-asn-mainstream-herself.trycloudflare.com/auth/callback",
+  "https://genes-asn-mainstream-herself.trycloudflare.com/auth/shopify/callback",
+  "https://genes-asn-mainstream-herself.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
