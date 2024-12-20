@@ -3,7 +3,7 @@
 client_id = "aecc1e39f3be0c08f212c689187ed9c1"
 name = "chatui"
 handle = "chatui"
-application_url = "https://genes-asn-mainstream-herself.trycloudflare.com"
+application_url = "https://west-wars-leather-windsor.trycloudflare.com"
 embedded = true
 
 [build]
@@ -13,13 +13,13 @@ include_config_on_deploy = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "read_products"
+scopes = "read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://genes-asn-mainstream-herself.trycloudflare.com/auth/callback",
-  "https://genes-asn-mainstream-herself.trycloudflare.com/auth/shopify/callback",
-  "https://genes-asn-mainstream-herself.trycloudflare.com/api/auth/callback"
+  "https://west-wars-leather-windsor.trycloudflare.com/auth/callback",
+  "https://west-wars-leather-windsor.trycloudflare.com/auth/shopify/callback",
+  "https://west-wars-leather-windsor.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

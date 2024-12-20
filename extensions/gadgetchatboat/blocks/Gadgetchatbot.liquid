@@ -4,12 +4,14 @@
 <div class="store_infor" shopurl="{{shop.url}}">
 
 </div>
-<button class="chatbot-toggler" onClick={handleFreePlayToggle}>
+<button class="chatbot-toggler">
   <span class="material-symbols-rounded">
     <img id="chatbot-open-toggle" src="{{ "gizmo.png" | asset_img_url: 'large' }}" height="50" width="50" loading="lazy"/></span>
   <span class="material-symbols-outlined">
-    <img id="chatbot-close-toggle" class="hidden" src="{{ "close.png" | asset_img_url: 'large' }}" height="35" width="35" loading="eager"/>
-
+    {% comment %} <img id="chatbot-close-toggle" class="hidden" src="{{ "close.png" | asset_img_url: 'large' }}" height="35" width="35" loading="eager"/> {% endcomment %}
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+    <path d="M24.2601 4.26948C25.2362 3.29338 25.2362 1.70818 24.2601 0.732079C23.284 -0.244026 21.6988 -0.244026 20.7227 0.732079L12.5 8.96259L4.26948 0.739887C3.29338 -0.236217 1.70818 -0.236217 0.732079 0.739887C-0.244026 1.71599 -0.244026 3.30119 0.732079 4.27729L8.96259 12.5L0.739888 20.7305C-0.236217 21.7066 -0.236217 23.2918 0.739888 24.2679C1.71599 25.244 3.30119 25.244 4.27729 24.2679L12.5 16.0374L20.7305 24.2601C21.7066 25.2362 23.2918 25.2362 24.2679 24.2601C25.244 23.284 25.244 21.6988 24.2679 20.7227L16.0374 12.5L24.2601 4.26948Z" fill="white"/>
+    </svg>
   </span>
 </button>
 <div class="chatbot">
@@ -23,7 +25,6 @@
         <path d="M40.3417 27.7465C40.4431 27.7591 40.5388 27.7717 40.6401 27.7797C40.7574 27.7923 40.8759 27.8003 40.9886 27.8095C40.7791 27.8015 40.5638 27.7797 40.3417 27.7465ZM40.098 27.7168C40.1823 27.7294 40.262 27.742 40.3417 27.7465C39.8463 27.6744 39.3668 27.5611 38.8965 27.4043C39.3088 27.5474 39.7119 27.6538 40.098 27.7168ZM40.3417 27.7465C40.4431 27.7591 40.5388 27.7717 40.6401 27.7797C40.7574 27.7923 40.8759 27.8003 40.9886 27.8095C40.7791 27.8015 40.5638 27.7797 40.3417 27.7465ZM40.098 27.7168C40.1823 27.7294 40.262 27.742 40.3417 27.7465C39.8463 27.6744 39.3668 27.5611 38.8965 27.4043C39.3088 27.5474 39.7119 27.6538 40.098 27.7168ZM40.3417 27.7465C40.4431 27.7591 40.5388 27.7717 40.6401 27.7797C40.7574 27.7923 40.8759 27.8003 40.9886 27.8095C40.7791 27.8015 40.5638 27.7797 40.3417 27.7465ZM40.098 27.7168C40.1823 27.7294 40.262 27.742 40.3417 27.7465C39.8463 27.6744 39.3668 27.5611 38.8965 27.4043C39.3088 27.5474 39.7119 27.6538 40.098 27.7168Z" fill="white"/>
         <path d="M36.777 3.23153C28.0247 5.1888 23.0454 12.8359 24.9383 21.3803C26.83 29.9248 34.5664 34.7275 43.3188 32.7703C52.0712 30.813 57.0504 23.1659 55.1576 14.6215C53.2659 6.07701 45.5294 1.27426 36.777 3.23153ZM44.6331 26.1339C44.1263 26.879 43.1172 27.4158 41.8553 27.6459C41.6481 27.6837 41.4351 27.71 41.2096 27.7249C41.131 27.7386 41.0501 27.7432 40.9659 27.7489C40.5752 27.7718 40.1584 27.7569 39.7256 27.7065C39.6345 27.7008 39.5411 27.6917 39.4466 27.6733C39.3452 27.6619 39.2427 27.6459 39.1402 27.6299C36.9991 27.2739 34.6348 26.1808 33.0916 24.7512C32.8103 24.4902 32.5654 24.2247 32.357 23.9591C32.6337 23.9271 32.9094 23.887 33.1827 23.8389C34.5243 23.6169 35.7816 23.2312 37.0162 22.8557L37.1335 22.8214C38.8077 22.3132 40.1891 21.9263 41.5239 21.9046C42.9282 21.8885 44.3153 22.6337 44.8962 23.7199C45.3027 24.4856 45.2185 25.2743 44.6342 26.1316L44.6331 26.1339ZM48.7707 20.4234C47.15 18.1777 44.3871 16.8008 41.4556 16.842C39.3054 16.8683 37.2918 17.4795 35.6757 17.9751L35.555 18.0106C34.0471 18.4696 32.6235 18.9046 31.2591 18.9629C31.2466 18.8485 31.2397 18.7352 31.2227 18.6207C30.5894 14.6203 33.021 9.09418 38.1881 8.28037C43.2869 7.478 47.4917 10.5432 48.7137 16.0625C49.0429 17.5459 49.0451 19.0339 48.7707 20.4234Z" fill="white"/>
         </svg>
-        {% comment %} <svg width="110" height="25" viewBox="0 0 101 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 24.3565L4.31161 24.3386L19.3295 24.2238L19.3708 19.9289H5.64005C11.7798 15.6792 10.9979 12.3677 14.6673 8.52728C15.7501 7.39239 17.2201 6.21515 19.3718 4.95138L19.3305 0.625449L0 0.648971V5.0803L11.8248 5.01067C11.507 5.3165 11.1741 5.64963 10.8357 6.01101C10.832 6.01471 10.832 6.01759 10.8292 6.01759C6.81288 10.288 1.35938 18.3291 0 20.1792" fill="#B21CFF"></path><path d="M54.4496 0.609392V24.3714H49.088V0.609392H54.4496Z" fill="#B21CFF"></path><path d="M63.2782 0.609392L68.7438 11.7221L74.2096 0.609392H80.2668L68.5695 24.3714H62.5122L65.7148 17.8718L57.22 0.609392H63.2782Z" fill="#B21CFF"></path><path d="M89.5109 0.609524L101 24.3716H95.0813C94.594 23.4277 93.4803 22.0999 91.7392 22.0999C89.0227 22.0999 86.1334 24.9306 81.8165 24.9306C77.4992 24.9306 74.6801 20.5275 78.9617 12.2454L84.9842 0.608587H89.5092L89.5109 0.609524ZM91.7047 17.3477L87.248 8.19242L84.6031 13.434C83.2449 16.1244 81.2952 20.1783 83.8022 20.1783C85.8214 20.1783 88.8153 17.6968 91.7047 17.3477Z" fill="#B21CFF"></path><path d="M33.0941 20.5123C33.1776 20.5227 33.2563 20.5331 33.3397 20.5396C33.4363 20.55 33.5338 20.5566 33.6266 20.5641C33.4541 20.5576 33.2769 20.5396 33.0941 20.5123ZM32.8935 20.4879C32.9629 20.4983 33.0285 20.5086 33.0941 20.5123C32.6863 20.4531 32.2916 20.3599 31.9044 20.231C32.2438 20.3487 32.5756 20.4361 32.8935 20.4879ZM33.0941 20.5123C33.1776 20.5227 33.2563 20.5331 33.3397 20.5396C33.4363 20.55 33.5338 20.5566 33.6266 20.5641C33.4541 20.5576 33.2769 20.5396 33.0941 20.5123ZM32.8935 20.4879C32.9629 20.4983 33.0285 20.5086 33.0941 20.5123C32.6863 20.4531 32.2916 20.3599 31.9044 20.231C32.2438 20.3487 32.5756 20.4361 32.8935 20.4879ZM33.0941 20.5123C33.1776 20.5227 33.2563 20.5331 33.3397 20.5396C33.4363 20.55 33.5338 20.5566 33.6266 20.5641C33.4541 20.5576 33.2769 20.5396 33.0941 20.5123ZM32.8935 20.4879C32.9629 20.4983 33.0285 20.5086 33.0941 20.5123C32.6863 20.4531 32.2916 20.3599 31.9044 20.231C32.2438 20.3487 32.5756 20.4361 32.8935 20.4879Z" fill="#B21CFF"></path><path d="M30.1597 0.357354C22.955 1.96652 18.8561 8.25359 20.4143 15.2784C21.9715 22.3032 28.34 26.2518 35.5448 24.6427C42.7496 23.0335 46.8483 16.7464 45.2902 9.72162C43.733 2.69677 37.3645 -1.25182 30.1597 0.357354ZM36.6267 19.1865C36.2095 19.7991 35.3788 20.2405 34.34 20.4296C34.1695 20.4607 33.9941 20.4823 33.8085 20.4946C33.7438 20.5058 33.6772 20.5096 33.6079 20.5143C33.2863 20.5331 32.9432 20.5209 32.5869 20.4795C32.5119 20.4748 32.435 20.4673 32.3573 20.4522C32.2738 20.4428 32.1894 20.4296 32.105 20.4165C30.3425 20.1238 28.3963 19.2251 27.126 18.0498C26.8944 17.8352 26.6928 17.6169 26.5212 17.3985C26.749 17.3722 26.976 17.3393 27.2009 17.2997C28.3053 17.1172 29.3403 16.8001 30.3566 16.4914L30.4532 16.4632C31.8313 16.0454 32.9685 15.7273 34.0672 15.7094C35.2232 15.6962 36.3651 16.3089 36.8433 17.2019C37.1779 17.8314 37.1086 18.4798 36.6276 19.1847L36.6267 19.1865ZM40.0327 14.4917C38.6985 12.6454 36.4242 11.5133 34.011 11.5472C32.241 11.5688 30.5835 12.0713 29.2531 12.4788L29.1538 12.508C27.9125 12.8853 26.7406 13.243 25.6175 13.2909C25.6072 13.1969 25.6015 13.1037 25.5875 13.0096C25.0662 9.72064 27.0678 5.17733 31.3213 4.50826C35.5185 3.84859 38.9798 6.36865 39.9857 10.9063C40.2567 12.1259 40.2585 13.3493 40.0327 14.4917Z" fill="#B21CFF"></path></svg> {% endcomment %}
         </span>
 
     <span class="close-btn material-symbols-outlined" id="close-btn" style="color: {{block.settings.chatbot_color_scheme}};" >close</span>
@@ -46,7 +47,10 @@
    
       <textarea placeholder="Message..." spellcheck="false" required></textarea>
     <span id="send-btn" class="material-symbols-rounded">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.2667 10.5048L15.0417 7.2465C14.9642 7.16839 14.872 7.1064 14.7705 7.06409C14.6689 7.02178 14.56 7 14.45 7C14.34 7 14.2311 7.02178 14.1295 7.06409C14.028 7.1064 13.9358 7.16839 13.8583 7.2465C13.7031 7.40263 13.616 7.61384 13.616 7.834C13.616 8.05415 13.7031 8.26536 13.8583 8.4215L16.825 11.4132H6.83333C6.61232 11.4132 6.40036 11.501 6.24408 11.6572C6.0878 11.8135 6 12.0255 6 12.2465C6 12.4675 6.0878 12.6795 6.24408 12.8358C6.40036 12.992 6.61232 13.0798 6.83333 13.0798H16.875L13.8583 16.0882C13.7802 16.1656 13.7182 16.2578 13.6759 16.3594C13.6336 16.4609 13.6118 16.5698 13.6118 16.6798C13.6118 16.7898 13.6336 16.8988 13.6759 17.0003C13.7182 17.1019 13.7802 17.194 13.8583 17.2715C13.9358 17.3496 14.028 17.4116 14.1295 17.4539C14.2311 17.4962 14.34 17.518 14.45 17.518C14.56 17.518 14.6689 17.4962 14.7705 17.4539C14.872 17.4116 14.9642 17.3496 15.0417 17.2715L18.2667 14.0382C18.7348 13.5694 18.9978 12.934 18.9978 12.2715C18.9978 11.609 18.7348 10.9736 18.2667 10.5048Z" fill="#AD49E1"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="11" viewBox="0 0 13 11" fill="none">
+<path d="M12.2667 3.5048L9.0417 0.2465C8.9642 0.16839 8.872 0.1064 8.7705 0.0640898C8.6689 0.0217798 8.56 0 8.45 0C8.34 0 8.2311 0.0217798 8.1295 0.0640898C8.028 0.1064 7.9358 0.16839 7.8583 0.2465C7.7031 0.40263 7.616 0.61384 7.616 0.834C7.616 1.05415 7.7031 1.26536 7.8583 1.4215L10.825 4.4132H0.83333C0.61232 4.4132 0.40036 4.501 0.24408 4.6572C0.0878001 4.8135 0 5.0255 0 5.2465C0 5.4675 0.0878001 5.6795 0.24408 5.8358C0.40036 5.992 0.61232 6.0798 0.83333 6.0798H10.875L7.8583 9.0882C7.7802 9.1656 7.7182 9.2578 7.6759 9.3594C7.6336 9.4609 7.6118 9.5698 7.6118 9.6798C7.6118 9.7898 7.6336 9.8988 7.6759 10.0003C7.7182 10.1019 7.7802 10.194 7.8583 10.2715C7.9358 10.3496 8.028 10.4116 8.1295 10.4539C8.2311 10.4962 8.34 10.518 8.45 10.518C8.56 10.518 8.6689 10.4962 8.7705 10.4539C8.872 10.4116 8.9642 10.3496 9.0417 10.2715L12.2667 7.0382C12.7348 6.5694 12.9978 5.934 12.9978 5.2715C12.9978 4.609 12.7348 3.9736 12.2667 3.5048Z" fill="#0000FF"/>
+</svg>
+      {% comment %} <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.2667 10.5048L15.0417 7.2465C14.9642 7.16839 14.872 7.1064 14.7705 7.06409C14.6689 7.02178 14.56 7 14.45 7C14.34 7 14.2311 7.02178 14.1295 7.06409C14.028 7.1064 13.9358 7.16839 13.8583 7.2465C13.7031 7.40263 13.616 7.61384 13.616 7.834C13.616 8.05415 13.7031 8.26536 13.8583 8.4215L16.825 11.4132H6.83333C6.61232 11.4132 6.40036 11.501 6.24408 11.6572C6.0878 11.8135 6 12.0255 6 12.2465C6 12.4675 6.0878 12.6795 6.24408 12.8358C6.40036 12.992 6.61232 13.0798 6.83333 13.0798H16.875L13.8583 16.0882C13.7802 16.1656 13.7182 16.2578 13.6759 16.3594C13.6336 16.4609 13.6118 16.5698 13.6118 16.6798C13.6118 16.7898 13.6336 16.8988 13.6759 17.0003C13.7182 17.1019 13.7802 17.194 13.8583 17.2715C13.9358 17.3496 14.028 17.4116 14.1295 17.4539C14.2311 17.4962 14.34 17.518 14.45 17.518C14.56 17.518 14.6689 17.4962 14.7705 17.4539C14.872 17.4116 14.9642 17.3496 15.0417 17.2715L18.2667 14.0382C18.7348 13.5694 18.9978 12.934 18.9978 12.2715C18.9978 11.609 18.7348 10.9736 18.2667 10.5048Z" fill="#AD49E1"></path></svg> {% endcomment %}
     </span>
     
    
@@ -74,11 +78,18 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-   
+    const chatbotToggler = document.querySelector('.chatbot-toggler');
+  const openToggle = document.getElementById('chatbot-open-toggle');
+  const closeToggle = document.getElementById('chatbot-close-toggle');
 
+  chatbotToggler.addEventListener('click', () => {
+    // Toggle visibility of open and close buttons by toggling the 'hidden' class
+    openToggle.classList.toggle('hidden');
+    closeToggle.classList.toggle('hidden');
+  });
 const shopUrl =  "{{ shop.domain }}";
 
-fetch('https://reported-impose-twins-shopping.trycloudflare.com/api/store-boat-info-get', {
+fetch('https://pf-swim-mortgages-accomplish.trycloudflare.com/api/store-boat-info-get', {
   method: 'post',
   headers: {
     'Content-Type': 'application/json'
@@ -94,7 +105,8 @@ fetch('https://reported-impose-twins-shopping.trycloudflare.com/api/store-boat-i
     return response.json();
   })
   .then(data => {
-    // Handle the response data here
+    // Handle the response data here----------------------------------------
+
     const colorScheme = data.data.colour;
 
     if (colorScheme) {
@@ -117,10 +129,10 @@ fetch('https://reported-impose-twins-shopping.trycloudflare.com/api/store-boat-i
 
     var storeLanguage2 = "{{ shop.locale }}"; 
     const Language = data.data.language.replace(/"/g, ""); 
-    console.log(storeLanguage2)
+    // console.log(storeLanguage2)
     // Get the message element
     const messageElement = document.querySelector("li.chat.incoming p");
-    console.log(storeLanguage2)
+    // console.log(storeLanguage2)
     // Set the message based on the language
     if (messageElement) {
       if (storeLanguage2 === "en") {
@@ -133,28 +145,24 @@ fetch('https://reported-impose-twins-shopping.trycloudflare.com/api/store-boat-i
     }
 
     const logoElement = document.querySelector("img#chatbot-open-toggle");
-    console.log(logoElement.src)
+    // console.log(logoElement.src)
     if (data.data.logo && logoElement) {
       logoElement.src = data.data.logo; // Set the src to the logo URL
     } else if (logoElement) {
       logoElement.src = "https://cdn.shopify.com/s/files/1/0903/9206/8411/files/pngtree-chatbot-robot-concept-chat-bot-png-image_5632381__1_-removebg-preview.png?v=1734440089"; // Hide the image if the logo is blank
     }
-    console.log("Store ID:", data.data.id);
-    console.log("Shop URL:", data.data.shopUrl);
-    console.log("Language:", data.data.language);
-    console.log("Ecommerce Type:", data.data.ecommerce_type);
-    console.log("Tone of Voice:", data.data.tone_of_voice);
-    console.log("Initial Message (EN):", JSON.parse(data.data.inital_message).EN);
-    console.log("Logo:", data.data.logo);
-    console.log("Subscription Status:", data.data.subscription);
+    // console.log("Store ID:", data.data.id);
+    // console.log("Shop URL:", data.data.shopUrl);
+    // console.log("Language:", data.data.language);
+    // console.log("Ecommerce Type:", data.data.ecommerce_type);
+    // console.log("Tone of Voice:", data.data.tone_of_voice);
+    // console.log("Initial Message (EN):", JSON.parse(data.data.inital_message).EN);
+    // console.log("Logo:", data.data.logo);
+    // console.log("Subscription Status:", data.data.subscription);
   })
   .catch(error => {
     console.error("Error fetching data:", error);
   });
-
-
-
-
 
   // Get the Shopify shop information
   var shopDomain = "{{ shop.domain }}";
@@ -168,7 +176,7 @@ fetch('https://reported-impose-twins-shopping.trycloudflare.com/api/store-boat-i
   // Function to handle chatbot session creation
   function createChatbotSession(data) {
     // For now, just log the session data to the console (replace with actual API call)
-    console.log("Session Created with data:", data);
+    // console.log("Session Created with data:", data);
     // You can send this data to your chatbot API or store it in local storage
   }
 
@@ -208,36 +216,6 @@ fetch('https://reported-impose-twins-shopping.trycloudflare.com/api/store-boat-i
   "name": "Gadgetchatbot",
   "target": "section",
   "settings": [
-    {
-      "type": "text",
-      "label": "bottom",
-      "id": "toggle_bottom",
-      "default": "10px"
-    },
-    {
-      "type": "text",
-      "label": "top",
-      "id": "toggle_top",
-      "default": "auto"
-    },
-    {
-      "type": "text",
-      "label": "left",
-      "id": "toggle_left",
-      "default": "auto"
-    },
-    {
-      "type": "text",
-      "label": "right",
-      "id": "toggle_right",
-      "default": "10px"
-    },
-    {
-      "type": "color",
-      "label": "Chatbot Color Scheme",
-      "id": "chatbot_color_scheme",
-      "default": "#00ADEF"
-    }
   ]
 }
 {% endschema %}
